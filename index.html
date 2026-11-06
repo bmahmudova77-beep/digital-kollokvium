@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="az"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rəqəmsal Layihələndirmə – Kollekvium Cavabları</title>
+<style>
+:root{--bg:#f7f5ef;--fg:#1d2433;--mut:#5b6475;--ac:#1f4e9c;--box:#fff;--ln:#d9d5c8;--hl:#e8eefb}
+@media(prefers-color-scheme:dark){:root{--bg:#14171f;--fg:#e6e9f0;--mut:#9aa3b5;--ac:#8db4ff;--box:#1b1f2a;--ln:#2f3646;--hl:#222a3d}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 Georgia,"Times New Roman",serif}
+header{padding:2.2rem 1.2rem 1.2rem;max-width:860px;margin:auto}
+h1{font-size:1.9rem;margin:0 0 .4rem;line-height:1.2}
+header p{margin:0;color:var(--mut)}
+nav{max-width:860px;margin:0 auto 1rem;padding:0 1.2rem;display:flex;flex-wrap:wrap;gap:.35rem}
+nav a{font:600 .85rem system-ui,sans-serif;color:var(--ac);border:1px solid var(--ln);border-radius:6px;padding:.25rem .55rem;text-decoration:none;background:var(--box)}
+nav a:focus-visible,nav a:hover{outline:2px solid var(--ac)}
+main{max-width:860px;margin:auto;padding:0 1.2rem 3rem}
+section{background:var(--box);border:1px solid var(--ln);border-left:4px solid var(--ac);border-radius:6px;padding:1.1rem 1.3rem;margin:1.1rem 0;scroll-margin-top:1rem}
+h2{font-size:1.2rem;margin:0 0 .6rem;color:var(--ac)}
+h3{font:700 .95rem system-ui,sans-serif;margin:1rem 0 .3rem}
+p{margin:.4rem 0}ul{margin:.3rem 0;padding-left:1.3rem}
+pre{background:var(--hl);border-radius:5px;padding:.7rem .9rem;overflow-x:auto;font:14.5px/1.5 ui-monospace,Consolas,monospace;margin:.5rem 0}
+.r{background:var(--hl);padding:.5rem .8rem;border-radius:5px;margin:.6rem 0}
+footer{text-align:center;color:var(--mut);padding-bottom:2rem;font-size:.9rem}
+@media print{nav{display:none}section{break-inside:avoid}}
+</style></head><body>
+<header><h1>Rəqəmsal Layihələndirmə<br>Kollekvium suallarının cavabları</h1>
+<p>22 sualın hər biri ayrıca, sadə dillə və imtahan vərəqinə yazılacaq qaydada izah olunub.</p></header>
+<nav id="nav"></nav>
+<main>
+
+<section id="s1"><h2>1. Onluq (Decimal) və ikilik (Binary) say sistemi</h2>
+<p><b>Onluq say sistemi:</b> əsası 10-dur, rəqəmləri 0-dan 9-a qədərdir. Hər mövqenin çəkisi 10-un qüvvətidir (1, 10, 100, ...).</p>
+<p><b>İkilik say sistemi:</b> əsası 2-dir, yalnız 0 və 1 rəqəmləri işlənir. Hər mövqenin çəkisi 2-nin qüvvətidir (1, 2, 4, 8, 16, 32, ...). Rəqəmsal sxemlərdə 0 = aşağı gərginlik, 1 = yüksək gərginlikdir.</p>
+<h3>Onluqdan ikiliyə çevirmə</h3><p>Ədəd 0 olana qədər 2-yə bölünür, qalıqlar <b>aşağıdan yuxarı</b> oxunur.</p>
+<pre>25 : 2 = 12  qalıq 1
+12 : 2 =  6  qalıq 0
+ 6 : 2 =  3  qalıq 0
+ 3 : 2 =  1  qalıq 1
+ 1 : 2 =  0  qalıq 1
+Cavab: 25(10) = 11001(2)</pre>
+<h3>İkilikdən onluğa çevirmə</h3><p>1 olan mövqelərin çəkiləri toplanır.</p>
+<pre>1011(2) = 1·8 + 0·4 + 1·2 + 1·1 = 11(10)</pre></section>
+
+<section id="s2"><h2>2. İkilik (Binary) say sistemi</h2>
+<p>İkilik sistemdə hər rəqəm <b>bit</b> adlanır. 4 bit = nibble, 8 bit = 1 bayt. Ən soldakı bit ən böyük çəkili (MSB), ən sağdakı ən kiçik çəkili (LSB) bitdir.</p>
+<pre>Çəkilər: 32 16  8  4  2  1
+Ədəd   :  1  0  1  1  0  1
+101101(2) = 32 + 8 + 4 + 1 = 45(10)</pre>
+<p><b>n bitlə</b> 2ⁿ müxtəlif ədəd yazılır (0-dan 2ⁿ−1-ə qədər). Məs: 4 bitlə 16 ədəd (0–15).</p>
+<h3>İkilik toplama qaydaları</h3>
+<pre>0+0=0   0+1=1   1+0=1   1+1=10 (0 yazılır, 1 yadda qalır)
+  1011
++ 0110
+------
+ 10001   (11 + 6 = 17)</pre></section>
+
+<section id="s3"><h2>3. Onaltılıq (Heksadesimal) say sistemi</h2>
+<p>Əsası 16-dır. 16 rəqəm işlədilir: 0–9 və A–F. Uzun ikilik ədədləri qısa yazmaq üçün istifadə olunur.</p>
+<pre>Onluq : 10 11 12 13 14 15
+Hex   :  A  B  C  D  E  F</pre>
+<p>Çəkilər 16-nın qüvvətləridir (1, 16, 256, ...).</p>
+<pre>2F(16)  = 2·16 + 15 = 47(10)
+1A3(16) = 1·256 + 10·16 + 3 = 419(10)</pre></section>
+
+<section id="s4"><h2>4. Onaltılıq tabanlı (Hexadecimal) say sistemi</h2>
+<p>Hex say sistemi 3-cü sualın davamıdır: onluqdan hex-ə çevirmə 16-ya bölməklə aparılır, qalıqlar aşağıdan yuxarı oxunur.</p>
+<pre>255 : 16 = 15  qalıq 15 (F)
+ 15 : 16 =  0  qalıq 15 (F)
+Cavab: 255(10) = FF(16)
+
+Nümunə: 90 : 16 = 5 qalıq 10 (A)  →  90(10) = 5A(16)</pre>
+<p>Hex-in üstünlüyü: 1 hex rəqəm = 4 bit, ona görə ikilik kodla qısa və asan əlaqə qurur.</p>
+<pre>0=0000  1=0001  2=0010  3=0011  4=0100  5=0101  6=0110  7=0111
+8=1000  9=1001  A=1010  B=1011  C=1100  D=1101  E=1110  F=1111</pre></section>
+
+<section id="s5"><h2>5. Onaltılıq say sisteminin ikilik say sisteminə çevrilməsi</h2>
+<div class="r"><b>Qayda:</b> hər hex rəqəm 4 bitlik ikilik qrupla əvəz olunur.</div>
+<pre>3A7(16):  3    A    7
+         0011 1010 0111
+Cavab: 3A7(16) = 001110100111(2)</pre>
+<h3>Tərsi (ikilikdən hex-ə)</h3>
+<p>İkilik ədəd <b>sağdan sola</b> 4-4 qruplara bölünür (çatmayan yerə 0 əlavə olunur), hər qrup hex rəqəmlə yazılır.</p>
+<pre>110101111(2) → 0001 1010 1111 → 1AF(16)</pre></section>
+
+<section id="s6"><h2>6. Üç girişli AND (VƏ) və OR (VƏ YA) qapısı</h2>
+<p><b>AND:</b> çıxış yalnız bütün girişlər 1 olanda 1-dir. İfadə: Y = A·B·C.<br>
+<b>OR:</b> çıxış ən azı bir giriş 1 olanda 1-dir. İfadə: Y = A+B+C.</p>
+<pre> A B C | AND OR
+ 0 0 0 |  0   0
+ 0 0 1 |  0   1
+ 0 1 0 |  0   1
+ 0 1 1 |  0   1
+ 1 0 0 |  0   1
+ 1 0 1 |  0   1
+ 1 1 0 |  0   1
+ 1 1 1 |  1   1</pre></section>
+
+<section id="s7"><h2>7. NOT (DEĞİL) və üç girişli NAND (VƏ DEĞİL) qapısı</h2>
+<p><b>NOT:</b> girişi tərsinə çevirir. Y = A′ (və ya Ā).</p>
+<pre> A | NOT
+ 0 |  1
+ 1 |  0</pre>
+<p><b>NAND:</b> AND qapısının tərsidir. Y = (A·B·C)′. Çıxış yalnız bütün girişlər 1 olanda 0-dır, qalan hallarda 1-dir.</p>
+<pre> A B C | NAND
+ 0 0 0 |  1
+ 0 0 1 |  1
+ 0 1 0 |  1
+ 0 1 1 |  1
+ 1 0 0 |  1
+ 1 0 1 |  1
+ 1 1 0 |  1
+ 1 1 1 |  0</pre>
+<p>NAND universal qapıdır: yalnız NAND ilə bütün digər qapıları qurmaq olar.</p></section>
+
+<section id="s8"><h2>8. Üç girişli NOR (VƏ YA DEĞİL) qapısı</h2>
+<p>NOR, OR qapısının tərsidir. Y = (A+B+C)′. Çıxış yalnız bütün girişlər 0 olanda 1-dir.</p>
+<pre> A B C | NOR
+ 0 0 0 |  1
+ 0 0 1 |  0
+ 0 1 0 |  0
+ 0 1 1 |  0
+ 1 0 0 |  0
+ 1 0 1 |  0
+ 1 1 0 |  0
+ 1 1 1 |  0</pre>
+<p>NOR da universal qapıdır.</p></section>
+
+<section id="s9"><h2>9. EX-OR (ÖZEL VƏ YA / XOR) qapısı</h2>
+<p>Giriş siqnalları <b>fərqli</b> olanda çıxış 1, eyni olanda 0-dır. İfadə: Y = A ⊕ B = A′B + AB′.</p>
+<pre> A B | XOR
+ 0 0 |  0
+ 0 1 |  1
+ 1 0 |  1
+ 1 1 |  0</pre>
+<p>Üç və daha çox girişdə XOR çıxışı 1-lərin sayı <b>tək</b> olanda 1 verir. İstifadəsi: toplayıcılar, bərabərlik və cütlük (parity) yoxlaması.</p></section>
+
+<section id="s10"><h2>10. EX-NOR (ÖZEL VƏ YA DEĞİL / XNOR) qapısı</h2>
+<p>XOR-un tərsidir. Giriş siqnalları <b>eyni</b> olanda çıxış 1-dir. İfadə: Y = (A ⊕ B)′ = AB + A′B′.</p>
+<pre> A B | XNOR
+ 0 0 |  1
+ 0 1 |  0
+ 1 0 |  0
+ 1 1 |  1</pre>
+<p>İstifadəsi: iki bitin bərabərliyinin müqayisəsi (komparator).</p></section>
+
+<section id="s11"><h2>11. Boolean özdəşlikləri (eyniliklər)</h2>
+<p>Boolean cəbrində dəyişənlər yalnız 0 və 1 ola bilər. Əsas özdəşliklər:</p>
+<pre>VƏ YA (+)          VƏ (·)
+A + 0 = A          A · 0 = 0
+A + 1 = 1          A · 1 = A
+A + A = A          A · A = A
+A + A′ = 1         A · A′ = 0
+          (A′)′ = A</pre>
+<p>Nümunə: <b>A + A′ = 1</b>, çünki A ya 0, ya 1-dir; hər iki halda ikisindən biri 1 olur.</p></section>
+
+<section id="s12"><h2>12. Boolean qaydaları (qanunları)</h2>
+<pre>Yerdəyişmə:   A + B = B + A         A·B = B·A
+Qruplaşdırma: (A+B)+C = A+(B+C)     (A·B)·C = A·(B·C)
+Paylanma:     A·(B+C) = A·B + A·C   A + B·C = (A+B)·(A+C)
+Udma:         A + A·B = A           A·(A+B) = A
+Əlavə qayda:  A + A′·B = A + B
+De Morgan:    (A+B)′ = A′·B′        (A·B)′ = A′+B′</pre>
+<p><b>De Morgan qaydası:</b> VƏ YA-nın tərsi tərslərin VƏ-sinə, VƏ-nin tərsi tərslərin VƏ YA-sına bərabərdir (qapı dəyişir, hər dəyişən tərslənir).</p></section>
+
+<section id="s13"><h2>13. Boolean ifadələri ilə sadələşdirmə</h2>
+<p><b>Qayda:</b> ortaq vuruq mötərizəyə al, sonra özdəşlikləri tətbiq et.</p>
+<pre>a) F = AB + AB′ = A(B + B′) = A·1 = A
+b) F = A + A′B = A + B
+c) F = (A+B)(A+B′) = A + BB′ = A + 0 = A
+d) F = ABC + ABC′ + AB′C
+     = AB(C + C′) + AB′C
+     = AB + AB′C = A(B + B′C) = A(B + C)</pre>
+<p>Sadələşmədən sonra ifadə daha az qapı ilə qurulur, sxem ucuz və sürətli olur.</p></section>
+
+<section id="s14"><h2>14. Boolean ifadələrinin loqik qapılarla göstərilməsi</h2>
+<div class="r"><b>Qayda:</b> hər əməliyyat bir qapıya uyğundur: · → AND, + → OR, ′ → NOT. Mötərizədən içəri doğru çəkilir.</div>
+<p><b>Nümunə 1:</b> F = AB + C′</p>
+<pre>A ──┐
+    AND ──┐
+B ──┘     │
+          OR ── F
+C ── NOT ─┘</pre>
+<p><b>Nümunə 2:</b> F = (A + B)·C′</p>
+<pre>A ──┐
+    OR ──┐
+B ──┘    │
+         AND ── F
+C ─ NOT ─┘</pre></section>
+
+<section id="s15"><h2>15. Loqik qapıların Boolean ifadələri ilə göstərilməsi</h2>
+<div class="r"><b>Qayda:</b> sxemi girişdən çıxışa doğru oxu, hər qapının çıxışını ifadə kimi yaz.</div>
+<p><b>Nümunə:</b> iki NAND qapısı: birinci NAND-ın girişləri A və B, ikinci NAND-ın girişləri birinci NAND-ın çıxışı və C-dir.</p>
+<pre>1-ci qapı: X = (A·B)′
+2-ci qapı: F = (X·C)′ = ((AB)′·C)′
+De Morgan: F = (AB)″ + C′ = AB + C′</pre>
+<p>Beləliklə, sxemin ifadəsi <b>F = AB + C′</b> olur. Doğruluq cədvəli yoxlanıla bilər.</p></section>
+
+<section id="s16"><h2>16. İki girişli dörd çıxışlı kod çözücü (2→4 Decoder)</h2>
+<p><b>Dekoder</b> giriş kodunu oxuyub, ona uyğun yalnız <b>bir</b> çıxışı aktiv edir. 2 giriş (A1, A0) → 2² = 4 çıxış (Y0–Y3).</p>
+<pre>A1 A0 | Y0 Y1 Y2 Y3
+ 0  0 |  1  0  0  0
+ 0  1 |  0  1  0  0
+ 1  0 |  0  0  1  0
+ 1  1 |  0  0  0  1</pre>
+<pre>Y0 = A1′A0′    Y1 = A1′A0
+Y2 = A1A0′     Y3 = A1A0</pre>
+<p>Sxem: 2 NOT qapısı və 4 AND qapısı. İstifadəsi: yaddaşda ünvan seçmək, cihaz seçmək.</p></section>
+
+<section id="s17"><h2>17. Üç girişli səkkiz çıxışlı kod çözücü (3→8 Decoder)</h2>
+<p>3 giriş (A, B, C; A ən böyük bit) → 2³ = 8 çıxış (Y0–Y7). Hər giriş kombinasiyası üçün yalnız bir çıxış 1 olur.</p>
+<pre> A B C | Y0 Y1 Y2 Y3 Y4 Y5 Y6 Y7
+ 0 0 0 |  1  0  0  0  0  0  0  0
+ 0 0 1 |  0  1  0  0  0  0  0  0
+ 0 1 0 |  0  0  1  0  0  0  0  0
+ 0 1 1 |  0  0  0  1  0  0  0  0
+ 1 0 0 |  0  0  0  0  1  0  0  0
+ 1 0 1 |  0  0  0  0  0  1  0  0
+ 1 1 0 |  0  0  0  0  0  0  1  0
+ 1 1 1 |  0  0  0  0  0  0  0  1</pre>
+<pre>Y0=A′B′C′  Y1=A′B′C  Y2=A′BC′  Y3=A′BC
+Y4=AB′C′   Y5=AB′C   Y6=ABC′   Y7=ABC</pre>
+<p>Sxem: 3 NOT və 8 ədəd 3 girişli AND qapısı.</p></section>
+
+<section id="s18"><h2>18. BCD giriş – onluq çıxış kod çözücü (BCD → Decimal)</h2>
+<p><b>BCD</b> – onluq rəqəmin (0–9) 4 bitlik ikilik kodudur. Dekoder 4 girişdən (D C B A, D ən böyük bit) 10 çıxış (0–9) alır (məs: 7442 mikrosxemi).</p>
+<pre>D C B A | Aktiv çıxış
+0 0 0 0 | 0
+0 0 0 1 | 1
+0 0 1 0 | 2
+0 0 1 1 | 3
+0 1 0 0 | 4
+0 1 0 1 | 5
+0 1 1 0 | 6
+0 1 1 1 | 7
+1 0 0 0 | 8
+1 0 0 1 | 9
+1 0 1 0 – 1 1 1 1 : yanlış BCD kodu, heç bir çıxış aktiv olmur</pre>
+<pre>Y0 = D′C′B′A′   Y5 = D′CB′A
+Y8 = DC′B′A′    Y9 = DC′B′A   (qalanları eyni qayda ilə)</pre>
+<p>Qeyd: 7442 mikrosxemində çıxışlar aktiv-aşağıdır (seçilən çıxış 0, qalanları 1 olur).</p></section>
+
+<section id="s19"><h2>19. BCD giriş – 7 segmentli çıxış kod çözücü</h2>
+<p>7 segmentli göstərici a, b, c, d, e, f, g segmentlərindən ibarətdir. Dekoder BCD kodunu oxuyub rəqəmə uyğun segmentləri yandırır. Cədvəl ortaq katodlu göstərici üçündür (1 = yanır).</p>
+<pre>Rəqəm  DCBA | a b c d e f g
+  0    0000 | 1 1 1 1 1 1 0
+  1    0001 | 0 1 1 0 0 0 0
+  2    0010 | 1 1 0 1 1 0 1
+  3    0011 | 1 1 1 1 0 0 1
+  4    0100 | 0 1 1 0 0 1 1
+  5    0101 | 1 0 1 1 0 1 1
+  6    0110 | 1 0 1 1 1 1 1
+  7    0111 | 1 1 1 0 0 0 0
+  8    1000 | 1 1 1 1 1 1 1
+  9    1001 | 1 1 1 1 0 1 1</pre>
+<p>Hər segment üçün Karno xəritəsi ilə sadə ifadə tapılır. Nümunə (A ən böyük bit, D ən kiçik): <b>a = A + C + BD + B′D′</b>. Ortaq anodlu göstəricidə cədvəl tərsinə çevrilir (0 = yanır). 7447 mikrosxemi bu işi görür.</p></section>
+
+<section id="s20"><h2>20. Kodlayıcılar (Encoder), 3 bitlik kodlayıcı</h2>
+<p><b>Kodlayıcı</b> dekoderin əksidir: çox girişdən yalnız biri aktiv olur, çıxışda həmin girişin nömrəsi ikilik kodla verilir. <b>3 bitlik kodlayıcı (8→3)</b>: 8 giriş (I0–I7), 3 çıxış (A2 A1 A0).</p>
+<pre>Aktiv giriş | A2 A1 A0
+    I0      |  0  0  0
+    I1      |  0  0  1
+    I2      |  0  1  0
+    I3      |  0  1  1
+    I4      |  1  0  0
+    I5      |  1  0  1
+    I6      |  1  1  0
+    I7      |  1  1  1</pre>
+<pre>A0 = I1 + I3 + I5 + I7
+A1 = I2 + I3 + I6 + I7
+A2 = I4 + I5 + I6 + I7</pre>
+<p>Sxem: 3 ədəd 4 girişli OR qapısı. Şərt: eyni anda yalnız bir giriş 1 olmalıdır.</p></section>
+
+<section id="s21"><h2>21. 3 və 4 bitlik kodlayıcı</h2>
+<p><b>3 bitlik:</b> 8 giriş → 3 çıxış (20-ci sual). <b>4 bitlik:</b> 16 giriş (I0–I15) → 4 çıxış (A3 A2 A1 A0). Çıxış biti, nömrəsinin ikilik yazılışında həmin bitin 1 olduğu girişlərin OR-udur.</p>
+<pre>A0 = I1+I3+I5+I7+I9+I11+I13+I15
+A1 = I2+I3+I6+I7+I10+I11+I14+I15
+A2 = I4+I5+I6+I7+I12+I13+I14+I15
+A3 = I8+I9+I10+I11+I12+I13+I14+I15</pre>
+<p>Nümunə: I9 aktivdirsə, 9 = 1001 olduğu üçün A3 = 1, A0 = 1, A2 = A1 = 0.</p>
+<p><b>Prioritet kodlayıcı:</b> bir neçə giriş eyni anda aktiv olsa, ən yüksək nömrəli giriş kodlanır. Adi kodlayıcının çatışmazlığını aradan qaldırır.</p></section>
+
+<section id="s22"><h2>22. Onluq giriş – BCD çıxış kodlayıcı (Decimal → BCD)</h2>
+<p>10 giriş (D0–D9, onluq rəqəmlər) → 4 çıxış (A3 A2 A1 A0, BCD kodu). Eyni anda yalnız bir giriş aktiv olur.</p>
+<pre>Giriş | A3 A2 A1 A0
+ D0   |  0  0  0  0
+ D1   |  0  0  0  1
+ D2   |  0  0  1  0
+ D3   |  0  0  1  1
+ D4   |  0  1  0  0
+ D5   |  0  1  0  1
+ D6   |  0  1  1  0
+ D7   |  0  1  1  1
+ D8   |  1  0  0  0
+ D9   |  1  0  0  1</pre>
+<pre>A0 = D1 + D3 + D5 + D7 + D9
+A1 = D2 + D3 + D6 + D7
+A2 = D4 + D5 + D6 + D7
+A3 = D8 + D9</pre>
+<p>Sxem: 4 OR qapısı (5, 4, 4 və 2 girişli). D0 heç bir qapıya qoşulmur, çünki kodu 0000-dır. İstifadəsi: klaviatura, kalkulyator.</p></section>
+</main>
+<footer>Rəqəmsal Layihələndirmə – kollekvium hazırlığı</footer>
+<script>
+var n=document.getElementById('nav');for(var i=1;i<=22;i++){var a=document.createElement('a');a.href='#s'+i;a.textContent=i;n.appendChild(a)}
+</script></body></html>
